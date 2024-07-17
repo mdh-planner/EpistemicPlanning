@@ -1,0 +1,36 @@
+
+0->3->5->7->4->8
+0 1 2 3 4 5 6 7 8
+x 0 0 1 4 2 0 3 5
+00142035
+03152046
+
+00142035 (35748)
+00542031 (85743)
+
+n -> broj gradova
+
+Insert/Remove (00142035 + 2. grad je 1 u nizu)
+~ O(n)
+vs
+~ O(1)
+
+Swap 
+~ O(1)
+vs
+~ O(n)
+
+k-opt
+1. napravimo niz [3,5,7,4,8,0,0,0] => O(n)
+2. promenimo order [5,3,7,8,4] => O(k*n*log(n))
+3. primenimo promenu => O(n)
+
+Hamming dist
+~ O(n)
+
+Cost
+1. konverzija => O(n) vs O(1)
+2. O(n)
+
+35 748
+352748
