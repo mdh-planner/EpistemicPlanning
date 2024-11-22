@@ -1,4 +1,4 @@
-#include "eigen-master/Eigen/dense"
+#include "../eigen-master/Eigen/dense"
 #include <iostream>
 #include <fstream>
 #include <vector>

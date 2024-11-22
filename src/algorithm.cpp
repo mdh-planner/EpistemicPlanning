@@ -66,7 +66,7 @@ void Algorithm::run() {
 
 	while (condition)
 	{
-		if ((i + 1) % 1 == 0) {
+		if ((i + 1) % 100 == 0) {
 			cout << "Iteration: " << i << endl;
 		}
 

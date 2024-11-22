@@ -1,6 +1,6 @@
 #pragma once
 #include <numbers>
-#include "eigen-master/Eigen/dense"
+#include "../eigen-master/Eigen/dense"
 #include "readProblem.h"
 #include "Node_EP.h"
 #include "structures.h"

@@ -117,7 +117,7 @@
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;%(PreprocessorDefinitions);_SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING;_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>C:\Users\bmc01\source\repos\mdutec;C:\Users\bmc01\source\repos\EpistemicPlanning\eigen-master\Eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\bmc01\source\repos\EpistemicPlanning\src;C:\Users\bmc01\source\repos\EpistemicPlanning\include;C:\Users\bmc01\source\repos\mdutec;C:\Users\bmc01\source\repos\EpistemicPlanning\eigen-master\Eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -135,7 +135,7 @@
       <PreprocessorDefinitions>NDEBUG;_CONSOLE;%(PreprocessorDefinitions);_SILENCE_EXPERIMENTAL_FILESYSTEM_DEPRECATION_WARNING;_CRT_SECURE_NO_WARNINGS</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
       <LanguageStandard>stdcpp20</LanguageStandard>
-      <AdditionalIncludeDirectories>C:\Users\bmc01\source\repos\mdutec;</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\Users\bmc01\source\repos\EpistemicPlanning\src;C:\Users\bmc01\source\repos\EpistemicPlanning\include;C:\Users\bmc01\source\repos\mdutec;</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
@@ -147,24 +147,27 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="algorithm.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="MCTS_MTSP_EP.cpp" />
-    <ClCompile Include="planning.cpp" />
-    <ClCompile Include="readProblem.cpp" />
-    <ClCompile Include="robot.cpp" />
+    <Text Include="CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="algorithm.h" />
-    <ClInclude Include="debugger.h" />
-    <ClInclude Include="logger.h" />
-    <ClInclude Include="MCTS_MTSP_EP.h" />
-    <ClInclude Include="Node_EP.h" />
-    <ClInclude Include="planning.h" />
-    <ClInclude Include="randomGenerator.h" />
-    <ClInclude Include="readProblem.h" />
-    <ClInclude Include="robot.h" />
-    <ClInclude Include="structures.h" />
+    <ClCompile Include="src\algorithm.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\MCTS_MTSP_EP.cpp" />
+    <ClCompile Include="src\planning.cpp" />
+    <ClCompile Include="src\readProblem.cpp" />
+    <ClCompile Include="src\robot.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="include\algorithm.h" />
+    <ClInclude Include="include\debugger.h" />
+    <ClInclude Include="include\logger.h" />
+    <ClInclude Include="include\MCTS_MTSP_EP.h" />
+    <ClInclude Include="include\Node_EP.h" />
+    <ClInclude Include="include\planning.h" />
+    <ClInclude Include="include\randomGenerator.h" />
+    <ClInclude Include="include\readProblem.h" />
+    <ClInclude Include="include\robot.h" />
+    <ClInclude Include="include\structures.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

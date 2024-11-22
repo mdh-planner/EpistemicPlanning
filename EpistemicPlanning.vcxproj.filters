@@ -18,54 +18,57 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="algorithm.cpp">
+    <Text Include="CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\algorithm.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="readProblem.cpp">
+    <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="src\MCTS_MTSP_EP.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="robot.cpp">
+    <ClCompile Include="src\planning.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="MCTS_MTSP_EP.cpp">
+    <ClCompile Include="src\readProblem.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="planning.cpp">
+    <ClCompile Include="src\robot.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="robot.h">
+    <ClInclude Include="include\algorithm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="readProblem.h">
+    <ClInclude Include="include\debugger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="algorithm.h">
+    <ClInclude Include="include\logger.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="randomGenerator.h">
+    <ClInclude Include="include\MCTS_MTSP_EP.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="debugger.h">
+    <ClInclude Include="include\Node_EP.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="logger.h">
+    <ClInclude Include="include\planning.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MCTS_MTSP_EP.h">
+    <ClInclude Include="include\randomGenerator.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Node_EP.h">
+    <ClInclude Include="include\readProblem.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="planning.h">
+    <ClInclude Include="include\robot.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="structures.h">
+    <ClInclude Include="include\structures.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
