@@ -1,0 +1,32 @@
+[
+{
+  "directory": "/Users/bmc01/Documents/EpistemicPlanning/build",
+  "command": "/usr/bin/clang++  -I/Users/bmc01/Documents/EpistemicPlanning/eigen-master -I/Users/bmc01/Documents/EpistemicPlanning/include -I/Users/bmc01/Documents/EpistemicPlanning -I/Users/bmc01/Documents/EpistemicPlanning/mdutec_planner  -std=c++20 -std=c++20 -stdlib=libc++ -O3 -DNDEBUG -arch x86_64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -std=gnu++20 -o CMakeFiles/epistemic_planning.dir/src/main.cpp.o -c /Users/bmc01/Documents/EpistemicPlanning/src/main.cpp",
+  "file": "/Users/bmc01/Documents/EpistemicPlanning/src/main.cpp"
+},
+{
+  "directory": "/Users/bmc01/Documents/EpistemicPlanning/build",
+  "command": "/usr/bin/clang++  -I/Users/bmc01/Documents/EpistemicPlanning/eigen-master -I/Users/bmc01/Documents/EpistemicPlanning/include -I/Users/bmc01/Documents/EpistemicPlanning -I/Users/bmc01/Documents/EpistemicPlanning/mdutec_planner  -std=c++20 -std=c++20 -stdlib=libc++ -O3 -DNDEBUG -arch x86_64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -std=gnu++20 -o CMakeFiles/epistemic_planning.dir/src/algo.cpp.o -c /Users/bmc01/Documents/EpistemicPlanning/src/algo.cpp",
+  "file": "/Users/bmc01/Documents/EpistemicPlanning/src/algo.cpp"
+},
+{
+  "directory": "/Users/bmc01/Documents/EpistemicPlanning/build",
+  "command": "/usr/bin/clang++  -I/Users/bmc01/Documents/EpistemicPlanning/eigen-master -I/Users/bmc01/Documents/EpistemicPlanning/include -I/Users/bmc01/Documents/EpistemicPlanning -I/Users/bmc01/Documents/EpistemicPlanning/mdutec_planner  -std=c++20 -std=c++20 -stdlib=libc++ -O3 -DNDEBUG -arch x86_64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -std=gnu++20 -o CMakeFiles/epistemic_planning.dir/src/planning.cpp.o -c /Users/bmc01/Documents/EpistemicPlanning/src/planning.cpp",
+  "file": "/Users/bmc01/Documents/EpistemicPlanning/src/planning.cpp"
+},
+{
+  "directory": "/Users/bmc01/Documents/EpistemicPlanning/build",
+  "command": "/usr/bin/clang++  -I/Users/bmc01/Documents/EpistemicPlanning/eigen-master -I/Users/bmc01/Documents/EpistemicPlanning/include -I/Users/bmc01/Documents/EpistemicPlanning -I/Users/bmc01/Documents/EpistemicPlanning/mdutec_planner  -std=c++20 -std=c++20 -stdlib=libc++ -O3 -DNDEBUG -arch x86_64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -std=gnu++20 -o CMakeFiles/epistemic_planning.dir/src/robot.cpp.o -c /Users/bmc01/Documents/EpistemicPlanning/src/robot.cpp",
+  "file": "/Users/bmc01/Documents/EpistemicPlanning/src/robot.cpp"
+},
+{
+  "directory": "/Users/bmc01/Documents/EpistemicPlanning/build",
+  "command": "/usr/bin/clang++  -I/Users/bmc01/Documents/EpistemicPlanning/eigen-master -I/Users/bmc01/Documents/EpistemicPlanning/include -I/Users/bmc01/Documents/EpistemicPlanning -I/Users/bmc01/Documents/EpistemicPlanning/mdutec_planner  -std=c++20 -std=c++20 -stdlib=libc++ -O3 -DNDEBUG -arch x86_64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -std=gnu++20 -o CMakeFiles/epistemic_planning.dir/src/readProblem.cpp.o -c /Users/bmc01/Documents/EpistemicPlanning/src/readProblem.cpp",
+  "file": "/Users/bmc01/Documents/EpistemicPlanning/src/readProblem.cpp"
+},
+{
+  "directory": "/Users/bmc01/Documents/EpistemicPlanning/build",
+  "command": "/usr/bin/clang++  -I/Users/bmc01/Documents/EpistemicPlanning/eigen-master -I/Users/bmc01/Documents/EpistemicPlanning/include -I/Users/bmc01/Documents/EpistemicPlanning -I/Users/bmc01/Documents/EpistemicPlanning/mdutec_planner  -std=c++20 -std=c++20 -stdlib=libc++ -O3 -DNDEBUG -arch x86_64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX14.4.sdk -std=gnu++20 -o CMakeFiles/epistemic_planning.dir/src/MCTS_MTSP_EP.cpp.o -c /Users/bmc01/Documents/EpistemicPlanning/src/MCTS_MTSP_EP.cpp",
+  "file": "/Users/bmc01/Documents/EpistemicPlanning/src/MCTS_MTSP_EP.cpp"
+}
+]

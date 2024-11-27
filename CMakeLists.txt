@@ -11,9 +11,6 @@ if (APPLE)
 endif()
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
 
-
-
-
 # Find the Eigen3 package (header-only, so no linking required)
 find_path(EIGEN3_INCLUDE_DIR Eigen/Dense REQUIRED PATHS "${PROJECT_SOURCE_DIR}/eigen-master")
 
@@ -42,8 +39,7 @@ add_executable(epistemic_planning
 
 # Link the static library 'libmdutec.a'
  target_link_libraries(epistemic_planning PRIVATE mdutec)
-# target_link_libraries(epistemic_planning PRIVATE stdc++fs)
 
 # Optional: set build type (Debug, Release)
-set(CMAKE_BUILD_TYPE Debug)  # or Debug
+set(CMAKE_BUILD_TYPE Release)  # or Debug
 

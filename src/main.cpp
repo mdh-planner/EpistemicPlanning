@@ -4,7 +4,7 @@
 #include <vector>
 #include <string>
 
- #include "../include/algo.h"
+#include "../include/algo.h"
 //#include "debugger.h"
 
  ///////Function to remove a file
