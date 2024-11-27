@@ -1,7 +1,10 @@
 #include <numeric>
 #include "../include/planning.h"
-#include "MCTS_MTSP_EP.h"
+#include "../include/MCTS_MTSP_EP.h"
 #include "../mdutec_planner/BasicECTSP.h"
+#include "../include/robot.h"
+
+// #include "../include/algo.h"
 
 using namespace std;
 
@@ -120,6 +123,55 @@ vector<int> Planning::mdutec(int instance, vector<int> & tasks, Robot &robot, ve
 
 	return result;
 }
+
+	void Planning::assignTasks(taskDict& tasksAssigned, Eigen::Vector2d& loc, Robot& robot, int zero) {
+		for (int i = 0; i < robot.taskQueue.size(); i++) {
+			tasksAssigned.one.push_back(loc.x());
+			tasksAssigned.two.push_back(loc.y());
+			if (zero == 0) {
+				tasksAssigned.three.push_back(0);
+			}
+			else {
+				tasksAssigned.three.push_back(robot.taskQueue[i]);
+			}
+
+			tasksAssigned.four.push_back(-1);
+			tasksAssigned.five.push_back(0);
+
+		}
+	}
+
+	void Planning::assignTasks1(taskDict& tasksAssigned, Eigen::Vector2d& loc, Robot& robot) {
+		
+			tasksAssigned.one.push_back(loc.x());
+			tasksAssigned.two.push_back(loc.y());
+			tasksAssigned.three.push_back(-1);
+			tasksAssigned.four.push_back(-1);
+			tasksAssigned.five.push_back(0);
+	}
+
+	void Planning::assignTasks(taskDict& tasksAssigned, Robot& robot) {
+		for (int i = 0; i < robot.taskQueue.size(); i++) {
+			tasksAssigned.one.push_back(robot.globalTaskLocs[robot.taskQueue[i]].x());
+			tasksAssigned.two.push_back(robot.globalTaskLocs[robot.taskQueue[i]].y());
+			tasksAssigned.three.push_back(robot.taskQueue[i]);
+			tasksAssigned.four.push_back(-1);
+			tasksAssigned.five.push_back(0);
+		}
+
+	}
+
+	void Planning::assignTasksCondition(taskDict& tasksAssigned, std::vector<int>& partition, taskDict& newTaskDict, int opBotsr) {
+		for (int i = 0; i < partition.size(); i++) {
+			if (partition[i] == opBotsr) {
+				tasksAssigned.one.push_back(newTaskDict.one[i]);
+				tasksAssigned.two.push_back(newTaskDict.two[i]);
+				tasksAssigned.three.push_back(newTaskDict.three[i]);
+				tasksAssigned.four.push_back(newTaskDict.four[i]);
+				tasksAssigned.five.push_back(newTaskDict.five[i]);
+			}
+		}
+	}
 
 
 

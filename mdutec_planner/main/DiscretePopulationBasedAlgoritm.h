@@ -84,70 +84,6 @@ protected:
 			}
 		}
 
-		//for (size_t i = 0; i < mNumberOfSolutionsInPopulation/2; i++) {
-
-		//	std::fill(numTasksPerAgent.begin(), numTasksPerAgent.end(), 1);
-		//	mTaskCountPerAgent.push_back({});
-		//	vector<int> lastAssigned(inNumberOfAgents);
-		//	std::fill(lastAssigned.begin(), lastAssigned.end(), -1);
-
-		//	vector<int> listOfTasks(inNumberOfCities);
-		//	std::iota(listOfTasks.begin(), listOfTasks.end(), 0);
-		//	std::shuffle(listOfTasks.begin(), listOfTasks.end(), std::random_device());
-
-		//	for (size_t j = 0; j < inNumberOfCities; j++) {
-
-		//		vector<std::pair<int, double>> agentFitness;
-		//		vector<double> temp;
-		//		double totalDist = 0;
-
-		//		for (int k = 0; k < inNumberOfAgents; k++) {
-		//			if (inAgentData[k].hasColor(inCityData[listOfTasks[j]].getColor())) {
-		//				double dist = 0;
-		//				if (lastAssigned[k] == -1) {
-		//					dist = mPrecalcDataStruct.mSourceDepotDistanceMatrix[k][listOfTasks[j]];
-		//				}
-		//				else {
-		//					dist = mPrecalcDataStruct.mDistanceMatrix[lastAssigned[k]][listOfTasks[j]];
-		//				}
-
-		//				totalDist += dist;
-		//				temp.push_back(dist);
-		//				agentFitness.push_back(make_pair(k, 0));
-
-		//			}
-		//		}
-
-		//		auto _lambdaSort = [](const std::pair<int, double>& a, const std::pair<int, double>& b) { return a.second < b.second; };
-		//		std::sort(agentFitness.begin(), agentFitness.end(), _lambdaSort);
-		//		std::sort(temp.begin(), temp.end());
-		///*		int ii = 0;
-
-		//		for (auto riter = temp.rbegin(); riter != temp.rend(); riter++) {
-		//			if (ii == 0) {
-		//				agentFitness[ii].second = *riter / totalDist;
-		//			}
-		//			else {
-		//				agentFitness[ii].second = agentFitness[ii - 1].second + *riter / totalDist;
-		//			}
-		//			ii++;
-		//		}
-
-		//		auto p = getRandomRealInRange(0.0, 1.0);
-
-		//		int rndA = histc(p, agentFitness);*/
-
-		//		int rndA = agentFitness[0].first;
-
-		//		lastAssigned[rndA] = listOfTasks[j];
-		//		mPopulationOfSolutions[i][(rndA * inNumberOfCities) + listOfTasks[j]] = numTasksPerAgent[rndA];
-		//		numTasksPerAgent[rndA]++;
-		//	}
-
-
-		//	mTaskCountPerAgent[i] = numTasksPerAgent;
-		//}
-
 		for (size_t i = 0; i < mNumberOfSolutionsInPopulation; i++) {
 
 			std::fill(numTasksPerAgent.begin(), numTasksPerAgent.end(), 1);
@@ -175,7 +111,6 @@ protected:
 							dist = mPrecalcDataStruct.mDistanceMatrix[lastAssigned[k]][listOfTasks[j]];
 						}
 
-
 						dist += mPrecalcDataStruct.mDestinationDepotDistanceMatrix[listOfTasks[j]].first;
 
 						totalDist += dist;
@@ -188,21 +123,6 @@ protected:
 				auto _lambdaSort = [](const std::pair<int, double>& a, const std::pair<int, double>& b) { return a.second < b.second; };
 				std::sort(agentFitness.begin(), agentFitness.end(), _lambdaSort);
 				std::sort(temp.begin(), temp.end());
-				/*		int ii = 0;
-
-						for (auto riter = temp.rbegin(); riter != temp.rend(); riter++) {
-							if (ii == 0) {
-								agentFitness[ii].second = *riter / totalDist;
-							}
-							else {
-								agentFitness[ii].second = agentFitness[ii - 1].second + *riter / totalDist;
-							}
-							ii++;
-						}
-
-						auto p = getRandomRealInRange(0.0, 1.0);
-
-						int rndA = histc(p, agentFitness);*/
 
 				int rndA = agentFitness[0].first;
 
@@ -214,50 +134,7 @@ protected:
 
 			mTaskCountPerAgent[i] = numTasksPerAgent;
 		}
-		//	//std::cout << "ini pop" << std::endl;
-		//	//debug_print_raw_solution(mPopulationOfSolutions[i], inNumberOfCities, inNumberOfAgents);
-		//	//debug_print_solution_agents(mPopulationOfSolutions[i], inNumberOfCities, inNumberOfAgents);
-		//}
-
-		//for (size_t i = 0; i < mNumberOfSolutionsInPopulation; i++) {
-
-
-		//	std::fill(numTasksPerAgent.begin(), numTasksPerAgent.end(), 1);
-		//	mTaskCountPerAgent.push_back({});
-
-		//	for (size_t j = 0; j < inNumberOfCities; j++) {
-
-
-		//		//Randomly selects a task for an agent with appropriate color
-
-		//		// do this in a smarter way
-		//		int rndA = getRandomIntegerInRange(0, static_cast<int>(inNumberOfAgents - 1));
-
-		//		while (!(inAgentData[rndA].hasColor(inCityData[j].getColor())))
-		//		{
-		//			rndA = getRandomIntegerInRange(0, static_cast<int>(inNumberOfAgents - 1));
-
-		//			if (rndA == -1) {
-		//				continue;
-		//			}
-		//		}
-
-		//		if (rndA == -1) {
-		//			continue;
-		//		}
-
-		//		mPopulationOfSolutions[i][(rndA * inNumberOfCities) + j] = numTasksPerAgent[rndA];
-		//		numTasksPerAgent[rndA]++;
-		//	}
-
-
-		//	mTaskCountPerAgent[i] = numTasksPerAgent;
-
-		//	//std::cout << "ini pop" << std::endl;
-		//	//debug_print_raw_solution(mPopulationOfSolutions[i], inNumberOfCities, inNumberOfAgents);
-		//	//debug_print_solution_agents(mPopulationOfSolutions[i], inNumberOfCities, inNumberOfAgents);
-		//}
-
+		
 		return mPopulationOfSolutions;
 	}
 
@@ -315,8 +192,6 @@ protected:
 			// is this ok?!
 			Bat tmp; tmp.v = Vt;
 			mPopulationBatBehavior.push_back(tmp);
-
-			
 			
 			// Takes a task from one agent and inserts it in others agent path (can be inserted within the same agent)
 			for (int mut = 0; mut < 3; mut++) {
@@ -337,8 +212,6 @@ protected:
 				
 				TwoOpt::runLocal(_solutionStruct, mPrecalcDataStruct);
 			}
-			
-			
 		}
 
 		//debug_print_solution_agents(inSolutionPopulation[mNumberOfSolutionsInPopulation - 1], inNumberOfCities, inNumberOfAgents);
@@ -348,12 +221,10 @@ protected:
 		for (int cpy = 0; cpy < _size; cpy++) {
 			inSolutionPopulation[mNumberOfSolutionsInPopulation - 1][cpy] = bestSol[cpy];
 		}
-
-
 		//debug_print_solution_agents(inSolutionPopulation[mNumberOfSolutionsInPopulation - 1], inNumberOfCities, inNumberOfAgents);
 	}
 
-	virtual bool evaluateCandidateSolutions(RawSolutionPopulation& inSolutionPopulation, std::vector<SolutionMetaData>& inSolutionMetadata) {
+	virtual bool evaluateCandidateSolutions(RawSolutionPopulation& inSolutionPopulation, std::vector<SolutionMetaData>& inSolutionMetadata) override {
 
 		inSolutionMetadata.clear();
 
@@ -385,12 +256,10 @@ protected:
 		// Store best solution ID for next iteration
 		mBestSolutionId = inSolutionMetadata[0].mSolutionId;
 
-		
-
 		return true;
 	}
 
-	virtual void precedencePopulationReparation(RawSolutionPopulation& inSolutionPopulation) {
+	virtual void precedencePopulationReparation(RawSolutionPopulation& inSolutionPopulation) override {
 		for (size_t i = 0; i < mNumberOfSolutionsInPopulation; i++) {
 
 			SolutionStruct _solutionStruct;
@@ -413,11 +282,11 @@ protected:
 
 	}
 
-	virtual void showBestSolution(RawSolutionPopulation& inSolutionPopulation) {
+	virtual void showBestSolution(RawSolutionPopulation& inSolutionPopulation) override {
 		debug_print_solution_agents(inSolutionPopulation[mBestSolutionId], inNumberOfCities, inNumberOfAgents);
 	}
 
-	virtual void importSolution(RawSolutionPopulation& inSolutionPopulation) {
+	virtual void importSolution(RawSolutionPopulation& inSolutionPopulation) override {
 
 		RawSolution inPop = new int[inNumberOfAgents * inNumberOfCities];
 
@@ -478,7 +347,7 @@ private:
 				return agentFitness[binNum].first;
 			}
 		}
-
+		return binNum;
 	}
 
 	unsigned long mNumberOfSolutionsInPopulation;

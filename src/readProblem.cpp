@@ -1,4 +1,4 @@
-#include "readProblem.h"
+#include "../include/readProblem.h"
 
 using namespace std;
 

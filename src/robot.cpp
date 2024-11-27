@@ -1,21 +1,22 @@
-#include "robot.h"
+#include "../include/robot.h"
 
 using namespace std;
-using namespace numbers;
+
 
 void Robot::initRobots(int _id, Problem& problem) {
 	ID = _id;
 	dt = 0.1;
 	decay = 0.2;
+	constexpr double pi = 3.14159265358979323846;
 	numBots = problem.robotLocs.size();
 	pose.x = problem.robotLocs[_id].x();
 	pose.y = problem.robotLocs[_id].y();
-	pose.theta = numbers::pi / 2;
+	pose.theta = pi / 2;
 	pose_sim = pose;
 	goalLoc.x = 0; goalLoc.y = 0;
 	//Sensor parameters
-	double step = numbers::pi / 16;
-	for (double value = -numbers::pi; value <= pi; value += step) {
+	double step = pi / 16;
+	for (double value = -pi; value <= pi; value += step) {
 		angles.push_back(value);
 	}
 	maxRange = 5; // sensor max range

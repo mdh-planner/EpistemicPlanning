@@ -1,10 +1,12 @@
-#pragma once
+// #pragma once
 #include <vector>
-#include "Node_EP.h"
-#include "robot.h"
-#include "algorithm.h"
+#include <unordered_set>
+#include "../include/Node_EP.h"
+// #include "../include/robot.h"
+// #include "algo.h"
+#include "../include/structures.h"
 
-
+class Robot;
 class MCTS {
 public:
 	MCTS();

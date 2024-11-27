@@ -1,17 +1,4 @@
-﻿// BasicECTSP.h (add this declaration)
-#pragma once
-
-
-// BasicECTSP.cpp (add this definition)
-// #include "BasicECTSP.h"
-#include "base/Salesman.h"
-#include "base/City.h"
-#include "base/Depot.h"
-#include "misc/CsvReader.h"
-#include "heuristics/precedence.h"
-#include "heuristics/gene_manipulation.h"
-#include "main/DiscretePopulationBasedAlgoritm.h"
-#include "misc/importData.h"
+﻿#pragma once
 #include <fstream>
 #include <iostream>
 #include <sstream>
@@ -20,22 +7,26 @@
 #include <immintrin.h>
 #include <stdlib.h>
 
+#include "base/Salesman.h"
+#include "base/City.h"
+#include "base/Depot.h"
+#include "misc/CsvReader.h"
+#include "heuristics/precedence.h"
+#include "heuristics/gene_manipulation.h"
+#include "main/DiscretePopulationBasedAlgoritm.h"
+#include "misc/ImportData.h"
 
 #ifndef POSE_H
 #define POSE_H
-
 typedef struct Pose {
 	double x, y, theta;
 };
 #endif
 
-// std::vector<int> runAlgorithm(int instance, std::vector<int>& tasks, std::vector<std::pair<double, double>>& taskLoc,
-// 	std::vector<Pose>& startLoc, std::vector<Pose>& depots, std::vector<std::vector<int>>& prec);
-
-
 std::vector<int> runAlgorithm(int instance, std::vector<int>& tasks, std::vector<std::pair<double, double>>& taskLoc,
 	std::vector<Pose>& startLoc, std::vector<Pose>& depots, std::vector<std::vector<int>>& prec) {
-	/*Update counter file*/
+	
+	/*Update counter file for logs*/
 	int count = 0;
 	std::ifstream infile("counter.txt"); infile >> count;
 	std::ofstream count_file; count_file.open("counter.txt"); count_file << count + 1; count_file.close();
@@ -50,11 +41,6 @@ std::vector<int> runAlgorithm(int instance, std::vector<int>& tasks, std::vector
 		Salesperson _m(i, startLoc[i].x, startLoc[i].y, _speed, _colors);
 		MD.salesUnit.push_back(_m);
 	}
-
-	//for (int ii = 0; ii < tasks.size(); ii++) {
-
-
-
 	int N = tasks.size();
 
 	std::vector<int> tempTaskIDs(N);
@@ -64,8 +50,6 @@ std::vector<int> runAlgorithm(int instance, std::vector<int>& tasks, std::vector
 
 		float _x = taskLoc[i].first;
 		float _y = taskLoc[i].second;
-
-
 
 		float _duration = 1;
 		int _color = 1;
@@ -84,23 +68,21 @@ std::vector<int> runAlgorithm(int instance, std::vector<int>& tasks, std::vector
 		MD.cities.push_back(_city);
 		//std::cout << _city.getPrintName() << "\t" << _x << "\t" << _y << "\t" << std::endl;
 	}
-	//}
+
 	for (long i = 0; i < depots.size(); i++) {
 		Depot _depot(i, depots[i].x, depots[i].y);
 		MD.depots.push_back(_depot);
 	}
 
-	//ImportData::printLoadedData(MD);
-	int maxRun = 1;
-
 	/* We need to define Algorithm Parameters somewhere, for now they are all over the place */
+	int maxRun = 1;
 	unsigned long populationSize = 201;
 	std::vector<int> result, _result;
 
 	std::cout << std::endl;
-	std::cout << "=========================" << std::endl;
+	// std::cout << "=========================" << std::endl;
 	std::cout << "=======Replanning!=======" << std::endl;
-	std::cout << "=========================" << std::endl;
+	// std::cout << "=========================" << std::endl;
 	std::cout << std::endl;
 
 	for (int run = 0; run < maxRun; run++) {
@@ -110,19 +92,19 @@ std::vector<int> runAlgorithm(int instance, std::vector<int>& tasks, std::vector
 
 		result = algo->run(instance, run, MD.cities.size(), MD.salesUnit.size());
 
-		printf("Run time: %.2fs\n", (double)(clock() - tStart2) / CLOCKS_PER_SEC);
-
-		delete algo;  // Don't forget to delete the allocated memory
+		printf("Replanning time: %.2fs\n", (double)(clock() - tStart2) / CLOCKS_PER_SEC);
 	}
 
 	// prepare result
 	_result.resize(result.size());
 	vector<int> tasks2;
+
 	for (int i = 0; i < tasks.size(); i++) {
 		tasks2.insert(tasks2.end(), tasks.begin(), tasks.end());
 	}
+	std::cout << std::endl;
+	std::cout << "New plan:" << std::endl;
 	for (int i = 0; i < result.size(); i++) {
-
 		_result[i] = tasks2[result[i] - 1];
 		std::cout << _result[i] << "," << std::flush;
 	}

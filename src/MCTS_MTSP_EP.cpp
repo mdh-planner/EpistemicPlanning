@@ -1,9 +1,14 @@
 #include <iostream>
+#include <fstream>
+#include <string>
+#include <sstream>
 #include <random>
 #include <unordered_set>
 #include <set>
-#include "MCTS_MTSP_EP.h"
-#include "randomGenerator.h"
+#include "../include/MCTS_MTSP_EP.h"
+#include "../include/randomGenerator.h"
+#include "../include/robot.h"
+
 
 using namespace std;
 

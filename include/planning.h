@@ -1,9 +1,11 @@
 #pragma once
 #include <vector>
-#include "algorithm.h"
-#include "Node_EP.h"
+// #include "../include/algorithm.h"
+#include "../include/Node_EP.h"
+#include "../include/structures.h"
+// #include "../include/robot.h"
 
-
+class Algo;
 class Robot;
 class MCTS;
 
@@ -15,53 +17,12 @@ public:
 	std::vector<int> mdutec(int instance, std::vector<int>& tasks, Robot& robot, std::vector<std::vector<int>> &prec, std::vector<std::vector<double>> & rzLoc);
 
 private:
-	void assignTasks(taskDict& tasksAssigned, Eigen::Vector2d& loc, Robot& robot, int zero) {
-		for (int i = 0; i < robot.taskQueue.size(); i++) {
-			tasksAssigned.one.push_back(loc.x());
-			tasksAssigned.two.push_back(loc.y());
-			if (zero == 0) {
-				tasksAssigned.three.push_back(0);
-			}
-			else {
-				tasksAssigned.three.push_back(robot.taskQueue[i]);
-			}
+	void assignTasks(taskDict& tasksAssigned, Eigen::Vector2d& loc, Robot& robot, int zero);
 
-			tasksAssigned.four.push_back(-1);
-			tasksAssigned.five.push_back(0);
+	void assignTasks1(taskDict& tasksAssigned, Eigen::Vector2d& loc, Robot& robot);
 
-		}
-	}
+	void assignTasks(taskDict& tasksAssigned, Robot& robot);
 
-	void assignTasks1(taskDict& tasksAssigned, Eigen::Vector2d& loc, Robot& robot) {
-		
-			tasksAssigned.one.push_back(loc.x());
-			tasksAssigned.two.push_back(loc.y());
-			tasksAssigned.three.push_back(-1);
-			tasksAssigned.four.push_back(-1);
-			tasksAssigned.five.push_back(0);
-	}
-
-	void assignTasks(taskDict& tasksAssigned, Robot& robot) {
-		for (int i = 0; i < robot.taskQueue.size(); i++) {
-			tasksAssigned.one.push_back(robot.globalTaskLocs[robot.taskQueue[i]].x());
-			tasksAssigned.two.push_back(robot.globalTaskLocs[robot.taskQueue[i]].y());
-			tasksAssigned.three.push_back(robot.taskQueue[i]);
-			tasksAssigned.four.push_back(-1);
-			tasksAssigned.five.push_back(0);
-		}
-
-	}
-
-	void assignTasksCondition(taskDict& tasksAssigned, std::vector<int>& partition, taskDict& newTaskDict, int opBotsr) {
-		for (int i = 0; i < partition.size(); i++) {
-			if (partition[i] == opBotsr) {
-				tasksAssigned.one.push_back(newTaskDict.one[i]);
-				tasksAssigned.two.push_back(newTaskDict.two[i]);
-				tasksAssigned.three.push_back(newTaskDict.three[i]);
-				tasksAssigned.four.push_back(newTaskDict.four[i]);
-				tasksAssigned.five.push_back(newTaskDict.five[i]);
-			}
-		}
-	}
+	void assignTasksCondition(taskDict& tasksAssigned, std::vector<int>& partition, taskDict& newTaskDict, int opBotsr);
 };
 

@@ -1,11 +1,10 @@
-#include "../eigen-master/Eigen/Dense"
+// #include "../eigen-master/Eigen/Dense"
 #include <iostream>
 #include <fstream>
 #include <vector>
 #include <string>
 
-
- #include "../include/algorithm.h"
+ #include "../include/algo.h"
 //#include "debugger.h"
 
  ///////Function to remove a file
@@ -54,25 +53,25 @@ int main() {
 	std::string init = seedDir + "/instance" + filename + ".txt";
 	std::string alloc = seedDir + "/allocation" + filename + ".txt";
 
-    std::string file_to_remove = "C:\\Users\\bmc01\\Desktop\\SMC 2024\\glocal-main\\IROS24\\rnd_value2.txt";
-    std::string source_file = "C:\\Users\\bmc01\\Desktop\\SMC 2024\\glocal-main\\IROS24\\rnd_value.txt";
-    std::string file_to_remove2 = "C:\\Users\\bmc01\\Desktop\\SMC 2024\\glocal-main\\IROS24\\datasample2.txt";
-    std::string source_file2 = "C:\\Users\\bmc01\\Desktop\\SMC 2024\\glocal-main\\IROS24\\datasample.txt";
+    // std::string file_to_remove = "C:\\Users\\bmc01\\Desktop\\SMC 2024\\glocal-main\\IROS24\\rnd_value2.txt";
+    // std::string source_file = "C:\\Users\\bmc01\\Desktop\\SMC 2024\\glocal-main\\IROS24\\rnd_value.txt";
+    // std::string file_to_remove2 = "C:\\Users\\bmc01\\Desktop\\SMC 2024\\glocal-main\\IROS24\\datasample2.txt";
+    // std::string source_file2 = "C:\\Users\\bmc01\\Desktop\\SMC 2024\\glocal-main\\IROS24\\datasample.txt";
 
 
-    // Remove the file
-    remove_file(file_to_remove);
-        // If file removed successfully, copy the source file to the destination
-    copy_file(source_file, file_to_remove);
+    // // Remove the file
+    // remove_file(file_to_remove);
+    //     // If file removed successfully, copy the source file to the destination
+    // copy_file(source_file, file_to_remove);
     
-    // Remove the file
-    remove_file(file_to_remove2);
-    // If file removed successfully, copy the source file to the destination
-    copy_file(source_file2, file_to_remove2);
+    // // Remove the file
+    // remove_file(file_to_remove2);
+    // // If file removed successfully, copy the source file to the destination
+    // copy_file(source_file2, file_to_remove2);
 
-	//Algorithm alg(init, alloc);
+	Algo alg(init, alloc);
 	clock_t tStart = clock();
-	//alg.run2();
+	alg.run();
 	std::cout << "Total runtime:  " << (double)(clock() - tStart) / CLOCKS_PER_SEC << std::endl;
 	return 0;
 }

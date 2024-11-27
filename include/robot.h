@@ -1,9 +1,10 @@
 #pragma once
 #include <numbers>
 #include "../eigen-master/Eigen/Dense"
-#include "readProblem.h"
+#include "../include/readProblem.h"
 #include "Node_EP.h"
 #include "structures.h"
+
 
 class Robot {
 public:

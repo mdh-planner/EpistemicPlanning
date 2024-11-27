@@ -22,6 +22,7 @@ include_directories(${EIGEN3_INCLUDE_DIR})
 
 # Include other source folders if necessary (e.g., 'include' folder in your project)
 include_directories("${PROJECT_SOURCE_DIR}/include")
+include_directories("${PROJECT_SOURCE_DIR}")
 
 # Add the 'mdutec planner' folder to the include directories for headers
 include_directories("${PROJECT_SOURCE_DIR}/mdutec_planner/")
@@ -31,18 +32,18 @@ link_directories("${PROJECT_SOURCE_DIR}/mdutec_planner/lib")
 
 # Add the executable target (list all your source files)
 add_executable(epistemic_planning
-    src/main.cpp
-    src/algorithm.cpp
-    src/planning.cpp
-    src/robot.cpp
-    src/readProblem.cpp
-    src/MCTS_MTSP_EP.cpp
-    # List other source files here as needed
+    "src/main.cpp"
+    "src/algo.cpp"
+    "src/planning.cpp"
+    "src/robot.cpp"
+    "src/readProblem.cpp"
+    "src/MCTS_MTSP_EP.cpp"
 )
 
 # Link the static library 'libmdutec.a'
-target_link_libraries(epistemic_planning PRIVATE mdutec)
+ target_link_libraries(epistemic_planning PRIVATE mdutec)
 # target_link_libraries(epistemic_planning PRIVATE stdc++fs)
 
 # Optional: set build type (Debug, Release)
-set(CMAKE_BUILD_TYPE Release)  # or Debug
+set(CMAKE_BUILD_TYPE Debug)  # or Debug
+
